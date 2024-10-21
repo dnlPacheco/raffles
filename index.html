@@ -19,8 +19,7 @@
         <form id="form">
             <div class="form-control">
                 <label for="participants">1. Insira os participantes</label>
-                <textarea>
-
+                <textarea name="participants" id="participants" placeholder="Cada participante deve estar em uma linha">
                 </textarea>
             </div>
 
@@ -28,7 +27,8 @@
                 <label for="quantity">
                     2. Como dividir
                 </label>
-                <select name="quantity">
+                <select name="quantity" id="quantity">
+                    <option value="selecione">Selecione as equipes...</option>
                     <option value="2">2 equipes</option>
                     <option value="3">3 equipes</option>
                     <option value="4">4 equipes</option>
@@ -41,7 +41,7 @@
                 <label for="title">
                     3. Título
                 </label>
-                <input type="text" name="title" placeholder="Dê um nome para o jogo..."></input>
+                <input type="text" name="title" placeholder="Dê um nome para o jogo..." id="title"></input>
             </div>
 
             <button type="reset">Limpar</button>
