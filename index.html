@@ -19,8 +19,7 @@
         <form id="form">
             <div class="form-control">
                 <label for="participants">1. Insira os participantes</label>
-                <textarea name="participants" id="participants" placeholder="Cada participante deve estar em uma linha">
-                </textarea>
+                <textarea name="participants" id="participants" placeholder="Cada participante deve estar em uma linha"></textarea>
             </div>
 
             <div class="form-control">
@@ -28,7 +27,7 @@
                     2. Como dividir
                 </label>
                 <select name="quantity" id="quantity">
-                    <option value="selecione">Selecione as equipes...</option>
+                    <option selected disabled value="">Selecione as equipes...</option>
                     <option value="2">2 equipes</option>
                     <option value="3">3 equipes</option>
                     <option value="4">4 equipes</option>
@@ -47,6 +46,9 @@
             <button type="reset">Limpar</button>
             <button type="submit">Sortear equipes</button>
         </form>
+
+        <div id="raffles-output">
+    </div>
 
     </div>
     <script src="./script.js"></script>
