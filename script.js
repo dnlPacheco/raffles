@@ -2,6 +2,8 @@ const form = document.querySelector("#form");
 const participants = document.querySelector("#participants");
 const quantity = document.querySelector("#quantity");
 const title = document.querySelector("#title");
+const rafflesOutput = document.querySelector("#raffles-output");
+
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -30,6 +32,7 @@ form.addEventListener("submit", (event) => {
     .split("\n")
     .map((player) => player.trim())
     .filter((player) => player !== "");
+
   console.log("players", players);
 
   const numberOfTeams = quantity.value;
@@ -50,4 +53,47 @@ form.addEventListener("submit", (event) => {
   }
 
   console.log("Times sorteados: ", teams);
+
+  displayRafflesOutput(teams)
+  
 });
+
+
+function displayRafflesOutput(teams) {
+  
+  rafflesOutput.innerHTML = ''
+
+  teams.forEach((team) => {
+    const teamDiv = document.createElement("div")
+    teamDiv.classList.add('team')
+
+    const teamName = document.createElement("h3")
+    teamName.textContent = team.name;
+    teamDiv.appendChild(teamName)
+
+    const teamPlayers = document.createElement("ul");
+
+    team?.players.forEach((player) => {
+      const playerItem = document.createElement("li")
+      playerItem.textContent = player;
+      teamPlayers.appendChild(playerItem)
+    })
+
+    teamDiv.appendChild(teamPlayers)
+
+    rafflesOutput.appendChild(teamDiv)
+  })
+}
+
+// TODO: Validar quando o número de participantes for menor que a quantidade de equipes
+
+/*
+Daniel
+Pedro
+Gabriel
+Afonso
+Luisa
+Gabriela
+Mariana
+Guilherme
+*/
