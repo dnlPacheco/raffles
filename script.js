@@ -82,7 +82,8 @@ form.addEventListener("submit", (event) => {
     teams[index % numberOfTeams].players.push(randomPlayers[index]);
   }
 
-  displayRafflesOutput(teams);
+  displayRafflesOutput(title.value.trim(), teams);
+  rafflesOutput.scrollIntoView({ behavior: "smooth" });
 });
 
 form.addEventListener("reset", () => {
@@ -90,18 +91,38 @@ form.addEventListener("reset", () => {
   clearAllErrors();
 });
 
-function displayRafflesOutput(teams) {
+function displayRafflesOutput(gameTitle, teams) {
   rafflesOutput.innerHTML = "";
+
+  const titleEl = document.createElement("h2");
+  titleEl.classList.add("output-title");
+  titleEl.textContent = gameTitle;
+  rafflesOutput.appendChild(titleEl);
+
+  const teamsGrid = document.createElement("div");
+  teamsGrid.classList.add("teams-grid");
 
   teams.forEach((team) => {
     const teamDiv = document.createElement("div");
     teamDiv.classList.add("team");
 
+    const teamHeader = document.createElement("div");
+    teamHeader.classList.add("team-header");
+
     const teamName = document.createElement("h3");
+    teamName.classList.add("team-name");
     teamName.textContent = team.name;
-    teamDiv.appendChild(teamName);
+    teamHeader.appendChild(teamName);
+
+    const teamCount = document.createElement("span");
+    teamCount.classList.add("team-count");
+    teamCount.textContent = `${team.players.length} jogador(es)`;
+    teamHeader.appendChild(teamCount);
+
+    teamDiv.appendChild(teamHeader);
 
     const teamPlayers = document.createElement("ul");
+    teamPlayers.classList.add("team-players");
 
     team.players.forEach((player) => {
       const playerItem = document.createElement("li");
@@ -110,6 +131,8 @@ function displayRafflesOutput(teams) {
     });
 
     teamDiv.appendChild(teamPlayers);
-    rafflesOutput.appendChild(teamDiv);
+    teamsGrid.appendChild(teamDiv);
   });
+
+  rafflesOutput.appendChild(teamsGrid);
 }

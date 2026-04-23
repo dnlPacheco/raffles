@@ -100,21 +100,7 @@ button[type="reset"]:hover {
   outline-color: #d32f2f;
 }
 
-/* Erros inline */
-.field-error {
-  display: block;
-  color: #d32f2f;
-  font-size: 0.8rem;
-  margin-top: 0.25rem;
-  min-height: 1rem;
-}
-
-.input-error {
-  border-color: #d32f2f !important;
-  outline-color: #d32f2f;
-}
-
-/* Output do sorteio */
+/* Raffle output */
 #raffles-output {
   margin-top: 2rem;
   padding-bottom: 1.5rem;
