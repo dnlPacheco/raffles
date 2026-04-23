@@ -20,6 +20,7 @@
             <div class="form-control">
                 <label for="participants">1. Insira os participantes</label>
                 <textarea name="participants" id="participants" placeholder="Cada participante deve estar em uma linha"></textarea>
+                <span class="field-error" id="error-participants"></span>
             </div>
 
             <div class="form-control">
@@ -34,13 +35,15 @@
                     <option value="5">5 equipes</option>
                     <option value="6">6 equipes</option>
                 </select>
+                <span class="field-error" id="error-quantity"></span>
             </div>
 
             <div class="form-control">
                 <label for="title">
                     3. Título
                 </label>
-                <input type="text" name="title" placeholder="Dê um nome para o jogo..." id="title"></input>
+                <input type="text" name="title" placeholder="Dê um nome para o jogo..." id="title">
+                <span class="field-error" id="error-title"></span>
             </div>
 
             <button type="reset">Limpar</button>
